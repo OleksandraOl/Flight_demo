@@ -1,0 +1,23 @@
+git <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ city.name }} - Flights</title>
+</head>
+<body>
+    <h2>Flights from {{ city.name }}</h2>
+    {% if flights %}
+        <ul>
+            {% for flight in flights %}
+                <li>{{ flight.flight_number }} to {{ flight.destination }} for ${{ flight.min_price_usd }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h5>No flights departing from {{ city.name }}</h5>
+    {% endif %}
+    <br>
+    <br>
+    <br>
+    <p><a href="{% url 'cities' %}">Back to all cities</a></p>
+</body>
+</html>

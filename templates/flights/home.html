@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flights</title>
+</head>
+<body>
+    <h2>List of flights</h2>
+
+    <ul style="list-style: none;">
+        {% for flight in flights %}
+            <li>{{ flight.flight_number }} from {{ flight.departure }} to {{ flight.destination }}</li>
+            <br>
+        {% endfor %}
+    </ul>
+    <br>
+    <br>
+    <br>
+    <p><a href="{% url 'cities' %}">To all cities</a></p>
+
+</body>
+</html>
