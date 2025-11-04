@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 
 from flights.models import Flight, City
+from flights.scrappers import populate_countries
 
 
 # Create your views here.
@@ -12,6 +13,7 @@ def greeting(request):
                   context=context)
 
 def cities_list(request):
+    populate_countries()
     context = {"cities": City.objects.all()}
     return render(request, "flights/cities.html", context=context)
 
